@@ -6,7 +6,7 @@ from app.cart.cart import addToCart
 from app.user.login import is_logged_in
 
 
-@app.route('/')
+@app.route('/profile')
 @is_logged_in
 def index():
         cur = mysql.connection.cursor()

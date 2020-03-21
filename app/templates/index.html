@@ -3,11 +3,13 @@
 {% block body %}
   <h1>Products</h1>
     {% for product in products %}
-      <div class="col-lg-3  col-md-3 col-sm-3">
+      <div class="col-lg-3  col-md-3 col-sm-3 card">
       <img src="{{ product.location }}" width="200" height="137" hspace="5" vspace="5"/>
+        <h2> {{product.name}} </h2>
       <br>
-      <a class="btn btn-success" href="addToCart/{{ product.product_id }}" align="centre"> Add To Cart</a>
+      <button class="" href="addToCart/{{ product.product_id }}" align="centre"> Add To Cart</button>
       <br>
+        <h3>Price: {{product.price}} </h3>
       </div>
     {% endfor %}
 {% endblock %}
