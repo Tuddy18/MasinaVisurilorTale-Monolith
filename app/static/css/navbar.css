@@ -1,11 +1,30 @@
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: #333;
+  background-color: #222;
   overflow: hidden;
+  align-ve
 }
 
 .topnav ul {
-    padding-left: 60px;
+    padding-left: 10%;
+    margin: 30px;
+    display: flex;
+}
+
+.topnav li {
+    padding-left: 10%;
+}
+
+.nav-cropped{
+    display: inline-block;
+  position: relative;
+  height: 290px;
+  overflow: hidden;
+}
+
+.nav-cropped img{
+    width: auto;
+    height: 100%;
 }
 
 /* Style the links inside the navigation bar */
@@ -13,9 +32,9 @@
   float: left;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px 16px;
+  padding: 10px 10px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 24px;
 }
 
 /* Change the color of links on hover */
