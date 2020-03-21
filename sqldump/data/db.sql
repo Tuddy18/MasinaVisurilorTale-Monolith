@@ -58,3 +58,9 @@ CREATE TABLE IF NOT EXISTS MatchedContact (
     CONSTRAINT FK_MatchedContact_First_Profile FOREIGN KEY (FirstProfileId) REFERENCES Profile(ProfileId),
     CONSTRAINT FK_MatchedContact_Second_Profile FOREIGN KEY (SecondProfileId) REFERENCES Profile(ProfileId)
 );
+
+INSERT INTO Account(Username, Password) VALUES('Ioan Grozea', 'tigari');
+
+INSERT INTO Profile(AccountId, Name, ProfileType, Description ) VALUES(1, 'Masina', 'Car', 'Masina frumoasa');
+
+INSERT INTO Photo(ProfileId, Url) VALUES(1, 'https://www.bmw-m.com/content/dam/bmw/marketBMW_M/common/topics/magazine-article-pool/2019/bmw-m-wallpaper/bmw-m850i-individual-night-sky-gallery-01.jpg');
