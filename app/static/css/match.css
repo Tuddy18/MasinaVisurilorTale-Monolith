@@ -2,7 +2,7 @@ div.first {
   background: rgba(0, 0, 0, 0.9);
 }
 
-button.button {
+button.like_button {
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
