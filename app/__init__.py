@@ -7,3 +7,4 @@ from app.user import register, login
 from app.cart import cart
 from app.orders import orders
 from app.payment import payment
+from app.profile import profile

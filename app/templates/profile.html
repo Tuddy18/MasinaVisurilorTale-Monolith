@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Profile</h1>
+
+      <div class="card">
+          <div class="cropped" >
+              <img  class="profile-image" src="{{ profile.photo }}"/>
+          </div>
+
+        <h1> {{profile.name}} </h1>
+          <img class="profile-type-image" src="https://cdn3.iconfinder.com/data/icons/car-icons-front-views/480/Sports_Car_Front_View-512.png" >
+      <br>
+          <div class="description">
+                      <h3 class="title">{{profile.description}} </h3>
+          </div>
+      </div>
+{% endblock %}

@@ -1,13 +1,35 @@
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
+  max-width: 700px;
   margin: 20px;
   text-align: center;
 }
 
+.cropped{
+    display: inline-block;
+  position: relative;
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.profile-type-image{
+    display: inline-block;
+    max-height: 20px;
+
+}
+
+.profile-image{
+    width: auto;
+    height: 100%;
+    margin-left: -50%;
+}
+
 .title {
   color: grey;
-  font-size: 18px;
+  font-size: 20px;
+  padding: 50px;
 }
 
 .card button {
