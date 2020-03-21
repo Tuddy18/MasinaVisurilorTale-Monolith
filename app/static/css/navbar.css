@@ -6,19 +6,18 @@
 }
 
 .topnav ul {
-    padding-left: 10%;
-    margin: 30px;
+    margin: 15px;
     display: flex;
 }
 
 .topnav li {
-    padding-left: 10%;
+    padding-left: 8%;
 }
 
 .nav-cropped{
     display: inline-block;
   position: relative;
-  height: 290px;
+  height: 150px;
   overflow: hidden;
 }
 
@@ -34,7 +33,7 @@
   text-align: center;
   padding: 10px 10px;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 22px;
 }
 
 /* Change the color of links on hover */

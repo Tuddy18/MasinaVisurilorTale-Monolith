@@ -1,9 +1,10 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-  <h1>Profile</h1>
-
-      <div class="card">
+    <div class="card-parent">
+<!--          <h1>Profile</h1>-->
+            <br>
+        <div class="card">
           <div class="cropped" >
               <img  class="profile-image" src="{{ profile.photo }}"/>
           </div>
@@ -15,4 +16,6 @@
                       <h3 class="title">{{profile.description}} </h3>
           </div>
       </div>
+    </div>
+
 {% endblock %}
