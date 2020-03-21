@@ -25,7 +25,7 @@ spec:
         volumeMounts:
         - name: demo
           mountPath: /tmp/data
-        command: ["/bin/sh", "-c", "wget https://raw.githubusercontent.com/cloudyuga/e-cart/monolith/sqldump/data/db.sql -O /tmp/data/db.sql"]
+        command: ["/bin/sh", "-c", "wget https://raw.githubusercontent.com/cloudyuga/e-match/monolith/sqldump/data/db.sql -O /tmp/data/db.sql"]
 
       containers:
       - name: ecart-db

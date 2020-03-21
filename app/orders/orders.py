@@ -11,7 +11,7 @@ def placeOrder(cartId):
     cur.execute("SELECT * FROM orders where cart_id = {0}".format(cartId))
     data = cur.fetchone()
     orderId = data['order_id']
-    if cur.execute("UPDATE cart set state='INACTIVE' WHERE cart_id = {}".format(cartId)):
+    if cur.execute("UPDATE match set state='INACTIVE' WHERE cart_id = {}".format(cartId)):
         mysql.connection.commit()
         cur.close()
         return render_template('place-order.html', orderId=orderId)
@@ -22,7 +22,7 @@ def placeOrder(cartId):
 def orders():
     cur = mysql.connection.cursor()
     result = cur.execute("SELECT * FROM orders WHERE cart_id in \
-                    (SELECT cart_id FROM cart WHERE user_id={})".format(session['userId']))
+                    (SELECT cart_id FROM match WHERE user_id={})".format(session['userId']))
     if result > 0:
         data = cur.fetchall()
         print("DATA = ",data)
