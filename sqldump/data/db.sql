@@ -1,9 +1,11 @@
+#DROP DATABASE masina_visurilor_tale;
+
 CREATE DATABASE IF NOT EXISTS masina_visurilor_tale;
 USE masina_visurilor_tale;
 
 CREATE TABLE IF NOT EXISTS Account (
     AccountId INT(50) NOT NULL AUTO_INCREMENT,
-    Username VARCHAR(500) NOT NULL,
+    Username VARCHAR(500) NOT NULL UNIQUE,
     Password VARCHAR(500) NOT NULL,
     CONSTRAINT PK_Account PRIMARY KEY (AccountId)
 );
@@ -44,6 +46,7 @@ CREATE TABLE IF NOT EXISTS Message (
     MessageId INT(50) NOT NULL AUTO_INCREMENT,
     FirstProfileId INT(50) NOT NULL,
     SecondProfileId INT(50) NOT NULL,
+    MessageDateTime DATETIME NOT NULL,
     CONSTRAINT PK_Message PRIMARY KEY (MessageId),
     CONSTRAINT FK_Message_First_Profile FOREIGN KEY (FirstProfileId) REFERENCES Profile(ProfileId),
     CONSTRAINT FK_Message_Second_Profile FOREIGN KEY (SecondProfileId) REFERENCES Profile(ProfileId)
