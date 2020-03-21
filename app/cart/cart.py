@@ -25,14 +25,9 @@ def addToCart(name):
 @is_logged_in
 def cart():
     cur = mysql.connection.cursor()
-
-    result = cur.execute("SELECT * FROM cart_items where cart_id in \
-                            (SELECT cart_id from cart where user_id={} and state = 'ACTIVE')".format(session['userId']))
+    result = cur.execute("SELECT * from product WHERE product_id=1")
+    recommandations = cur.fetchall()
     if result > 0:
-        cart = cur.fetchall()
-        cur.execute("SELECT total_price FROM cart where cart_id = {}".format(cart[0]['cart_id']))
-        totalPrice = cur.fetchone()
-        totalPrice = totalPrice['total_price']
-        return render_template('cart.html', cart=cart, totalPrice=totalPrice)
+        return render_template('cart.html', recommandations=recommandations)
     else:
         return render_template('cartEmpty.html')
