@@ -6,6 +6,7 @@
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 700px;
+  min-width: 400px;
   margin: 20px;
   text-align: center;
 }
@@ -17,6 +18,10 @@
   height: 300px;
   overflow: hidden;
   border-radius: 50%;
+
+      justify-content: center;
+    align-items: center;
+    display: inline-flex;
 }
 
 .profile-type-image{
@@ -28,7 +33,6 @@
 .profile-image{
     width: auto;
     height: 100%;
-    margin-left: -50%;
 }
 
 .title {

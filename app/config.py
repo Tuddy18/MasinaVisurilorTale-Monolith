@@ -11,7 +11,7 @@ import os
 app.config['MYSQL_HOST'] = '127.0.0.1'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'ecommerce'
+app.config['MYSQL_DB'] = 'masina_visurilor_tale'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 # app.config['MYSQL_HOST'] = os.environ['MYSQL_DB_HOST']

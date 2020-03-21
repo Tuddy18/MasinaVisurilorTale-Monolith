@@ -10,6 +10,7 @@ from app.user.login import is_logged_in
 @app.route('/')
 @is_logged_in
 def index():
+        return redirect("/profile")
         cur = mysql.connection.cursor()
         result = cur.execute("SELECT * from product")
         products = cur.fetchall()

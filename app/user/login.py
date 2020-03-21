@@ -18,18 +18,18 @@ def login():
         cur = mysql.connection.cursor()
 
         # Get user by username
-        result = cur.execute("SELECT * FROM user WHERE username = %s", [username])
+        result = cur.execute("SELECT * FROM account WHERE Username = %s", [username])
         if result > 0:
             # Get stored hash
             data = cur.fetchone()
-            password = data['password']
+            password = data['Password']
 
             # Compare passwords
             if sha256_crypt.verify(password_candidate, password):
                 # Passed
                 session['logged_in'] = True
                 #session['username'] = username
-                session['userId'] = data['user_id']
+                session['accountId'] = data['AccountId']
                 flash('You are now logged in', 'success')
                 return redirect(url_for('index'))
             else:

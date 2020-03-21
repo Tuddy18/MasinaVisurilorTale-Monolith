@@ -1,5 +1,7 @@
 from app import app
 from flask import render_template
+from app.config import mysql
+from flask import request, render_template, flash, redirect, url_for, session
 from app.user.login import is_logged_in
 
 
@@ -7,12 +9,15 @@ from app.user.login import is_logged_in
 @is_logged_in
 def profile():
     # TODO link with db
-        # cur = mysql.connection.cursor()
-        # result = cur.execute("SELECT * from profiles where UserId = %d", session["UserId"])
-        # profile = cur.fetchone()
-        # print("PRODUCT = ",profile)
+        cur = mysql.connection.cursor()
+        result = cur.execute("SELECT * from profile where AccountId = %s", str(session["accountId"]))
+        profile = cur.fetchone()
+        print("PRODUCT = ",profile)
 
-        profile = {"name": "BMW", "photo": "https://www.bmw-m.com/content/dam/bmw/marketBMW_M/common/topics/magazine-article-pool/2019/bmw-m-wallpaper/bmw-m850i-individual-night-sky-gallery-01.jpg",
-                   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel nulla sed magna pellentesque elementum. Duis malesuada sapien et neque imperdiet fringilla. Vivamus ac cursus dui."}
+        cur.execute("SELECT Url from photo where ProfileId = %s", str(profile["ProfileId"]))
+        profile_photo = cur.fetchone()['Url']
+
+        profile = {"name": profile["Name"], "photo": profile_photo,
+                   "description": profile["Description"]}
         return render_template('profile.html', profile=profile)
 
