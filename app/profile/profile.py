@@ -10,11 +10,11 @@ from app.user.login import is_logged_in
 def profile():
     # TODO link with db
         cur = mysql.connection.cursor()
-        result = cur.execute("SELECT * from profile where AccountId = %s", str(session["accountId"]))
+        result = cur.execute("SELECT * from Profile where AccountId = %s", str(session["accountId"]))
         profile = cur.fetchone()
         print("PRODUCT = ",profile)
 
-        cur.execute("SELECT Url from photo where ProfileId = %s", str(profile["ProfileId"]))
+        cur.execute("SELECT Url from Photo where ProfileId = %s", str(profile["ProfileId"]))
         profile_photo = cur.fetchone()['Url']
 
         profile = {"name": profile["Name"], "photo": profile_photo,

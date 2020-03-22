@@ -18,7 +18,7 @@ def login():
         cur = mysql.connection.cursor()
 
         # Get user by username
-        result = cur.execute("SELECT * FROM account WHERE Username = %s", [username])
+        result = cur.execute("SELECT * FROM Account WHERE Username = %s", [username])
         if result > 0:
             # Get stored hash
             data = cur.fetchone()
