@@ -2,4 +2,5 @@
 from app import app
 
 app.secret_key='secret'
-app.run(debug=True, host='localhost')
+if __name__ == '__main__':
+    app.run()
