@@ -7,7 +7,6 @@
 .attributes-parent{
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .attributes-container{
@@ -95,10 +94,53 @@ button:hover, a:hover {
 
 .chip {
   display: inline-block;
-  padding: 0 25px;
+  padding: 0 10px;
   height: 50px;
   font-size: 16px;
   line-height: 50px;
   border-radius: 25px;
-  background-color: #f1f1f1;
+  background-color: #aec8e0;
+}
+
+.add-chip {
+  float: right;
+  display: inline-block;
+  padding: 0 5px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #aec8e0;
+      justify-content: center;
+
+}
+
+.closebtn {
+  padding-left: 10px;
+  color: #888;
+  font-weight: bold;
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.addbtn {
+  padding-left: 10px;
+  padding-right: 10px;
+
+  color: #888;
+  font-weight: bold;
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.closebtn:hover {
+  color: #000;
+}
+
+#feature_to_be_added {
+    max-height: 25px;
+    max-width: 150px;
+    margin-top: 12px;
 }
