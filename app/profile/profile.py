@@ -15,9 +15,10 @@ def profile():
         print("PRODUCT = ",profile)
 
         cur.execute("SELECT Url from Photo where ProfileId = %s", str(profile["ProfileId"]))
-        profile_photo = cur.fetchone()['Url']
+        # svae photos as tuple of index and url, so we can access for loop index
+        profile_photos = [(i, el['Url']) for (i, el) in enumerate(cur.fetchall())]
 
-        profile = {"name": profile["Name"], "photo": profile_photo,
+        profile = {"name": profile["Name"], "photo": profile_photos[0][1],
                    "description": profile["Description"]}
-        return render_template('profile.html', profile=profile)
+        return render_template('profile.html', profile=profile, profile_photos=profile_photos)
 

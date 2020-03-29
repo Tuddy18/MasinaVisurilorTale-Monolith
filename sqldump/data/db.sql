@@ -1,4 +1,4 @@
-#DROP DATABASE masina_visurilor_tale;
+DROP DATABASE masina_visurilor_tale;
 
 CREATE DATABASE IF NOT EXISTS masina_visurilor_tale;
 USE masina_visurilor_tale;
@@ -72,7 +72,11 @@ INSERT INTO Profile(AccountId, Name, ProfileType, Description ) VALUES(2, 'Chevy
 INSERT INTO Profile(AccountId, Name, ProfileType, Description ) VALUES(3, 'Beatle', 'Car', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum venenatis bibendum. Maecenas id porta nibh. Quisque ut lorem viverra, maximus risus sit amet, aliquet nulla. Aliquam erat volutpat. Etiam ac pellentesque ante. Mauris condimentum molestie tristique. Phasellus sit amet vehicula metus.');
 INSERT INTO Profile(AccountId, Name, ProfileType, Description ) VALUES(4, 'Mercedes', 'Car', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum venenatis bibendum. Maecenas id porta nibh. Quisque ut lorem viverra, maximus risus sit amet, aliquet nulla. Aliquam erat volutpat. Etiam ac pellentesque ante. Mauris condimentum molestie tristique. Phasellus sit amet vehicula metus.');
 
-INSERT INTO Photo(ProfileId, Url) VALUES(1, 'https://www.bmw-m.com/content/dam/bmw/marketBMW_M/common/topics/magazine-article-pool/2019/bmw-m-wallpaper/bmw-m850i-individual-night-sky-gallery-01.jpg');
+INSERT INTO Photo(ProfileId, Url) VALUES(1, 'https://www.bmw-m.com/content/dam/bmw/marketBMW_M/common/topics/magazine-article-pool/2019/bmw-m-wallpaper/bmw-m850i-individual-night-sky-gallery-01.jpg')
+
 INSERT INTO Photo(ProfileId, Url) VALUES(2, 'https://media.apnarm.net.au/media/images/2018/09/10/b881570332z1_20180910142638_000gnu1850e21-0-q7lilirpso9msbdgxq2_fct2072x1554x622x452_t1880.jpg');
+INSERT INTO Photo(ProfileId, Url) VALUES(2, 'https://drivetribe.imgix.net/RYeyMS-OS2-XkAX4R0grRg?w=1400&h=788&fm=webp&auto=compress&lossless=true&fit=crop&crop=faces');
+INSERT INTO Photo(ProfileId, Url) VALUES(2, 'https://i.pinimg.com/originals/44/cb/09/44cb09ea1d4d22c32374cd04ced207c2.jpg');
+
 INSERT INTO Photo(ProfileId, Url) VALUES(3, 'https://i.pinimg.com/originals/f8/f9/a1/f8f9a1412e58338778f8eac76dea1753.jpg');
 INSERT INTO Photo(ProfileId, Url) VALUES(4, 'https://images.autotrader.com/scaler/620/420/cms/images/cars/bmw/3-series/20153seriesvs2015cclass/233385.jpg');

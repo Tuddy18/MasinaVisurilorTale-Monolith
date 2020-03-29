@@ -1,22 +1,24 @@
 <html>
-  <head>
-      <title>Masina Visurilor Tale Este Acum Aici</title>
-<!--      <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">-->
-      <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
-      <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
-      <link rel="stylesheet" href="{{ url_for('static', filename='css/match.css') }}">
+<head>
+    <title>Masina Visurilor Tale Este Acum Aici</title>
+    <!--      <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">-->
 
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/match.css') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
-  </head>
-  <body>
-    <div class="nav-cropped"><img  src="/static/car1.jpeg" width="100%"/></div>
-    {% include 'includes/_navbar.html' %}
-    <div class="container">
-      {% include 'includes/_messages.html' %}
-      {% block body %}{% endblock %}
-    </div>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </body>
+</head>
+<body>
+<div class="nav-cropped"><img  src="/static/car1.jpeg" width="100%"/></div>
+{% include 'includes/_navbar.html' %}
+<div class="container">
+    {% include 'includes/_messages.html' %}
+    {% block body %}{% endblock %}
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
