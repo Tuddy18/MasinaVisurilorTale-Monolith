@@ -17,94 +17,81 @@
         </div>
     </div>
 
-    <div class="attributes-parent">
-        <div class="attributes-container">
-            <div class="description">
-                <h2>Features</h2>
+    <div class="container">
 
-                <div class="chip">
-                    4x4
+        <div id="myCarouselProfile" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                {% for photo in profile_photos %}
+                {% if photo[0] == 0 %}
+                <li data-target="#myCarouselProfile" data-slide-to="{{photo[0]}}" class="active"></li>
+                {% else %}
+                <li data-target="#myCarouselProfile" data-slide-to="{{photo[0]}}"></li>
+                {% endif %}
+                {% endfor %}
+            </ol>
+
+            <div class="carousel-inner profile-carousel-inner">
+                {% for photo in profile_photos %}
+                {% if photo[0] == 0 %}
+                <div class="item active">
+                    <img class="profile-image" src="{{photo[1]}}" alt="profile_pic {{photo[0]}}" style="width: 100%;">
                 </div>
-
-                <div class="chip">
-                    leather inside
+                {% else %}
+                <div class="item">
+                    <img class="profile-image" src="{{photo[1]}}" alt="profile_pic {{photo[0]}}" style="width: 100%;">
                 </div>
+                {% endif %}
 
-                <div class="chip">
-                    diesel
+                {% endfor %}
+
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarouselProfile" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarouselProfile" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <div class="attributes-parent">
+            <div class="attributes-container">
+                <div class="description">
+                    <h3>Features</h3>
+                    <div class="chip">
+                        4x4
+                    </div>
+                    <div class="chip">
+                        leather inside
+                    </div>
+                    <div class="chip">
+                        diesel
+                    </div>
                 </div>
+            </div>
 
-
+            <div class="attributes-container">
+                <div class="description">
+                    <h3>Preferences</h3>
+                    <div class="chip">
+                        experienced driver
+                    </div>
+                    <div class="chip">
+                        race enthusiast
+                    </div>
+                    <div class="chip">
+                        leather lover
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="attributes-container">
-            <div class="description">
-                <h2>Preferences</h2>
-
-                <div class="chip">
-                    experienced driver
-                </div>
-
-                <div class="chip">
-                    race enthusiast
-                </div>
-
-                <div class="chip">
-                    leather lover
-                </div>
-
-
-            </div>
-        </div>
     </div>
 
 
-
-</div>
-
-<div class="container">
-    <div id="myCarouselProfile" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            {% for photo in profile_photos %}
-            {% if photo[0] == 0 %}
-            <li data-target="#myCarouselProfile" data-slide-to="{{photo[0]}}" class="active"></li>
-            {% else %}
-            <li data-target="#myCarouselProfile" data-slide-to="{{photo[0]}}"></li>
-            {% endif %}
-            {% endfor %}
-        </ol>
-
-        <div class="carousel-inner">
-            {% for photo in profile_photos %}
-            {% if photo[0] == 0 %}
-            <div class="item active">
-                <img src="{{photo[1]}}" alt="profile_pic {{photo[0]}}" style="width: 100%;">
-                <div class="carousel-caption first">
-                </div>
-            </div>
-            {% else %}
-            <div class="item">
-                <img src="{{photo[1]}}" alt="profile_pic {{photo[0]}}" style="width: 100%;">
-                <div class="carousel-caption first">
-                </div>
-            </div>
-            {% endif %}
-
-            {% endfor %}
-
-        </div>
-
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarouselProfile" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarouselProfile" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
 
 </div>
 {% endblock %}

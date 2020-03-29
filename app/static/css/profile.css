@@ -5,7 +5,9 @@
 }
 
 .attributes-parent{
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .attributes-container{
@@ -13,11 +15,23 @@
   max-height: 300px;
   text-align: center;
     padding: 40px;
+   width: 50%;
+}
+
+.profile-carousel-inner{
+   display: inline-block;
+  position: relative;
+  width: 800px;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 700px;
-  min-width: 400px;
+  min-width: 500px;
   margin: 20px;
   text-align: center;
 }
@@ -49,7 +63,10 @@
 .title {
   color: grey;
   font-size: 20px;
-  padding: 50px;
+  padding-bottom: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+
 }
 
 .card button {
