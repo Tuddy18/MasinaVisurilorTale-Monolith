@@ -56,6 +56,8 @@ CREATE TABLE IF NOT EXISTS MatchedContact (
     MatchedContactId INT(50) NOT NULL AUTO_INCREMENT,
     FirstProfileId INT(50) NOT NULL,
     SecondProfileId INT(50) NOT NULL,
+    FirstProfileLike BOOLEAN,
+    SecondProfileLike BOOLEAN,
     MatchDateTime DATETIME NOT NULL,
     CONSTRAINT PK_MatchedContact PRIMARY KEY (MatchedContactId),
     CONSTRAINT FK_MatchedContact_First_Profile FOREIGN KEY (FirstProfileId) REFERENCES Profile(ProfileId),
@@ -80,3 +82,8 @@ INSERT INTO Photo(ProfileId, Url) VALUES(2, 'https://i.pinimg.com/originals/44/c
 
 INSERT INTO Photo(ProfileId, Url) VALUES(3, 'https://i.pinimg.com/originals/f8/f9/a1/f8f9a1412e58338778f8eac76dea1753.jpg');
 INSERT INTO Photo(ProfileId, Url) VALUES(4, 'https://images.autotrader.com/scaler/620/420/cms/images/cars/bmw/3-series/20153seriesvs2015cclass/233385.jpg');
+
+INSERT INTO MatchedContact(FirstProfileId, SecondProfileId, FirstProfileLike, MatchDateTime)
+VALUES (1, 3, true, '2017:10:10');
+INSERT INTO MatchedContact(FirstProfileId, SecondProfileId, SecondProfileLike, MatchDateTime)
+VALUES (4, 1, true, '2017:11:11');

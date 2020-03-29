@@ -1,66 +1,51 @@
 {% extends 'layout.html' %}
 {% block body %}
-<h1>Match your Soul Mate</h1>
-{% for item in recommandations %}
-<div class="container">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
+    <h1>Match your Soul Mate</h1>
+      <div class="container">
+          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                  {% for photo in recommendations %}
+                  {% if recommendations.index(photo) == 0 %}
+                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                  {% else %}
+                  <li data-target="#myCarousel" data-slide-to="{{recommendations.index(photo)}}"></li>
+                  {% endif %}
+                  {% endfor %}
+              </ol>
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner match-carousel-inner">
+                  {% for photo in recommendations %}
+                  {% if recommendations.index(photo) == 0 %}
+                  <div class="item active">
+                      <img src= "{{photo.Url}}" alt="photo" style="width:100%;">
+                      <div class="carousel-caption first">
+                      </div>
+                  </div>
+                  {% else %}
+                  <div class="item">
+                      <img src= "{{photo.Url}}" alt="photo" style="width:100%;">
+                      <div class="carousel-caption first">
+                      </div>
+                  </div>
+                  {% endif %}
+                  {% endfor %}
+              </div>
 
-            <div class="item active">
-                <img src="/static/lada.jpg" alt="lada" style="width:100%;">
-                <div class="carousel-caption first">
-                    <h3>Name: {{item.name}}</h3>
-                    <h4>Price: {{item.price}}</h4>
-                    <p>Description: {{item.category}}</p>
-                </div>
-            </div>
-
-            <div class="item">
-                <img src="/static/shoe.jpg" alt="shoe" style="width:100%;">
-                <div class="carousel-caption first">
-                    <h3>Name: {{item.name}}</h3>
-                    <h4>Price: {{item.price}}</h4>
-                    <p>Description: {{item.category}}</p>
-                    <button class="half_page_button like_button_red hover_button">Decline</button>
-                    <button class="half_page_button like_button_green hover_button">Accept</button>
-                </div>
-            </div>
-
-            <div class="item">
-                <img src="/static/tv.jpg" alt="tv" style="width:100%;">
-                <div class="carousel-caption first">
-                    <h3>Name: {{item.name}}</h3>
-                    <h4>Price: {{item.price}}</h4>
-                    <p>Description: {{item.category}}</p>
-                    <button class="like_button_red hover_button">Decline</button>
-                    <button class="like_button_green hover_button">Accept</button>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-    <button class="half_page_button like_button_red hover_button">Decline</button>
-    <button class="half_page_button like_button_green hover_button">Accept</button>
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <button class="half_page_button like_button_red hover_button" name="submit_button" type="submit" value="Dislike">Decline</button>
+  <button class="half_page_button like_button_green hover_button" name="submit_button" type="submit" value="Like">Accept</button>
 
 </div>
 
-{% endfor %}
 {% endblock %}

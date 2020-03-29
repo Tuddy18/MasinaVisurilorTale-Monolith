@@ -2,6 +2,17 @@ div.first {
   background: rgba(0, 0, 0, 0.9);
 }
 
+.match-carousel-inner{
+   display: inline-block;
+  position: relative;
+  width: 100px;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 button.like_button_green {
   background-color: #4CAF50; /* Green */
   border: none;
