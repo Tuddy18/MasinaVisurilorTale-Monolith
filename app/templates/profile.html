@@ -1,6 +1,8 @@
 {% extends 'layout.html' %}
 
 {% block body %}
+<script type="text/javascript"
+        src="{{ url_for('static', filename='js/profile.js') }}"></script>
 <div class="card-parent">
     <!--          <h1>Profile</h1>-->
     <br>
@@ -61,14 +63,17 @@
             <div class="attributes-container">
                 <div class="description">
                     <h3>Features</h3>
+                    {% for feature in features %}
+
                     <div class="chip">
-                        4x4
+                        {{feature}}
+                        <span class="closebtn" onclick="removeFeature(this, '{{feature}}')">&times;</span>
                     </div>
-                    <div class="chip">
-                        leather inside
-                    </div>
-                    <div class="chip">
-                        diesel
+
+                    {% endfor %}
+                    <div class="add-chip">
+                        <input id="feature_to_be_added" type="text" style="display:none;">
+                        <span class="addbtn" onclick="$('#feature_to_be_added').show();">&plus;</span>
                     </div>
                 </div>
             </div>
@@ -78,13 +83,18 @@
                     <h3>Preferences</h3>
                     <div class="chip">
                         experienced driver
+                        <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
                     </div>
                     <div class="chip">
                         race enthusiast
+                        <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
                     </div>
                     <div class="chip">
                         leather lover
+                        <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
                     </div>
+
+
                 </div>
             </div>
         </div>

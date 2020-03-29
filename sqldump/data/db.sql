@@ -35,11 +35,20 @@ CREATE TABLE IF NOT EXISTS Statistics (
     CONSTRAINT FK_Statistics_Profile FOREIGN KEY (ProfileId) REFERENCES Profile(ProfileId)
 );
 
-CREATE TABLE IF NOT EXISTS Preference (
+CREATE TABLE IF NOT EXISTS Preferences (
     PreferenceId INT(50) NOT NULL AUTO_INCREMENT,
     ProfileId INT(50) NOT NULL,
+    PreferenceText VARCHAR(500) NOT NULL,
     CONSTRAINT PK_Preference PRIMARY KEY (PreferenceId),
     CONSTRAINT FK_Preference_Profile FOREIGN KEY (ProfileId) REFERENCES Profile(ProfileId)
+);
+
+CREATE TABLE IF NOT EXISTS Features (
+    FeatureId INT(50) NOT NULL AUTO_INCREMENT,
+    ProfileId INT(50) NOT NULL,
+    FeatureText VARCHAR(500) NOT NULL,
+    CONSTRAINT PK_Feature PRIMARY KEY (FeatureId),
+    CONSTRAINT FK_Feature_Profile FOREIGN KEY (ProfileId) REFERENCES Profile(ProfileId)
 );
 
 CREATE TABLE IF NOT EXISTS Message (
