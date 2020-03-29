@@ -25,6 +25,26 @@ def profile_remove_feature():
     resp = jsonify(success=True)
     return resp
 
+@app.route('/profile/add-preference',  methods = ['POST'])
+@is_logged_in
+def profile_add_preference():
+    preference_text = request.form["preference_text"]
+    cur = mysql.connection.cursor()
+    cur.execute("Insert into Preferences(ProfileId, PreferenceText) Values(%s, %s)", (str(session["ProfileId"]), preference_text))
+    mysql.connection.commit()
+    resp = jsonify(success=True)
+    return resp
+
+@app.route('/profile/remove-preference',  methods = ['POST'])
+@is_logged_in
+def profile_remove_preference():
+    preference_text = request.form["preference_text"]
+    cur = mysql.connection.cursor()
+    cur.execute("Delete from Preferences where ProfileId = %s and PreferenceText = %s", (str(session["ProfileId"]), preference_text))
+    mysql.connection.commit()
+    resp = jsonify(success=True)
+    return resp
+
 @app.route('/profile')
 @is_logged_in
 def profile():
@@ -43,7 +63,11 @@ def profile():
         cur.execute("SELECT * from Features where ProfileId = %s", str(profile["ProfileId"]))
         features = [el["FeatureText"] for el in cur.fetchall()]
 
+
+        cur.execute("SELECT * from Preferences where ProfileId = %s", str(profile["ProfileId"]))
+        preferences = [el["PreferenceText"] for el in cur.fetchall()]
+
         profile = {"name": profile["Name"], "photo": profile_photos[0][1],
                    "description": profile["Description"]}
-        return render_template('profile.html', profile=profile, profile_photos=profile_photos, features=features)
+        return render_template('profile.html', profile=profile, profile_photos=profile_photos, features=features, preferences=preferences)
 
