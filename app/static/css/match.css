@@ -5,7 +5,7 @@ div.first {
 .match-carousel-inner{
    display: inline-block;
   position: relative;
-  width: 100px;
+  width: 100%;
   height: 400px;
   overflow: hidden;
   display: flex;

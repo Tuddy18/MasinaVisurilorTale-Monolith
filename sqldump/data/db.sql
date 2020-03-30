@@ -53,12 +53,11 @@ CREATE TABLE IF NOT EXISTS Features (
 
 CREATE TABLE IF NOT EXISTS Message (
     MessageId INT(50) NOT NULL AUTO_INCREMENT,
-    FirstProfileId INT(50) NOT NULL,
-    SecondProfileId INT(50) NOT NULL,
+    MatchedContactId INT(50) NOT NULL,
     MessageDateTime DATETIME NOT NULL,
+    MessageText VARCHAR(500) NOT NULL,
     CONSTRAINT PK_Message PRIMARY KEY (MessageId),
-    CONSTRAINT FK_Message_First_Profile FOREIGN KEY (FirstProfileId) REFERENCES Profile(ProfileId),
-    CONSTRAINT FK_Message_Second_Profile FOREIGN KEY (SecondProfileId) REFERENCES Profile(ProfileId)
+    CONSTRAINT FK_Message_MatchedContact FOREIGN KEY (MatchedContactId) REFERENCES MatchedContact(MatchedContactId)
 );
 
 CREATE TABLE IF NOT EXISTS MatchedContact (
@@ -83,7 +82,7 @@ INSERT INTO Profile(AccountId, Name, ProfileType, Description ) VALUES(2, 'Chevy
 INSERT INTO Profile(AccountId, Name, ProfileType, Description ) VALUES(3, 'Beatle', 'Car', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum venenatis bibendum. Maecenas id porta nibh. Quisque ut lorem viverra, maximus risus sit amet, aliquet nulla. Aliquam erat volutpat. Etiam ac pellentesque ante. Mauris condimentum molestie tristique. Phasellus sit amet vehicula metus.');
 INSERT INTO Profile(AccountId, Name, ProfileType, Description ) VALUES(4, 'Mercedes', 'Car', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum venenatis bibendum. Maecenas id porta nibh. Quisque ut lorem viverra, maximus risus sit amet, aliquet nulla. Aliquam erat volutpat. Etiam ac pellentesque ante. Mauris condimentum molestie tristique. Phasellus sit amet vehicula metus.');
 
-INSERT INTO Photo(ProfileId, Url) VALUES(1, 'https://www.bmw-m.com/content/dam/bmw/marketBMW_M/common/topics/magazine-article-pool/2019/bmw-m-wallpaper/bmw-m850i-individual-night-sky-gallery-01.jpg')
+INSERT INTO Photo(ProfileId, Url) VALUES(1, 'https://www.bmw-m.com/content/dam/bmw/marketBMW_M/common/topics/magazine-article-pool/2019/bmw-m-wallpaper/bmw-m850i-individual-night-sky-gallery-01.jpg');
 
 INSERT INTO Photo(ProfileId, Url) VALUES(2, 'https://media.apnarm.net.au/media/images/2018/09/10/b881570332z1_20180910142638_000gnu1850e21-0-q7lilirpso9msbdgxq2_fct2072x1554x622x452_t1880.jpg');
 INSERT INTO Photo(ProfileId, Url) VALUES(2, 'https://drivetribe.imgix.net/RYeyMS-OS2-XkAX4R0grRg?w=1400&h=788&fm=webp&auto=compress&lossless=true&fit=crop&crop=faces');
@@ -96,3 +95,7 @@ INSERT INTO MatchedContact(FirstProfileId, SecondProfileId, FirstProfileLike, Ma
 VALUES (1, 3, true, '2017:10:10');
 INSERT INTO MatchedContact(FirstProfileId, SecondProfileId, SecondProfileLike, MatchDateTime)
 VALUES (4, 1, true, '2017:11:11');
+INSERT INTO MatchedContact(FirstProfileId, SecondProfileId, SecondProfileLike, MatchDateTime)
+VALUES (3, 1, true, '2017:11:11');
+
+

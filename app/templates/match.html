@@ -1,5 +1,7 @@
 {% extends 'layout.html' %}
 {% block body %}
+<script type="text/javascript"
+        src="{{ url_for('static', filename='js/match.js') }}"></script>
     <h1>Match your Soul Mate</h1>
       <div class="container">
           <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -15,7 +17,7 @@
               </ol>
 
               <!-- Wrapper for slides -->
-              <div class="carousel-inner match-carousel-inner">
+              <div class="carousel-inner">
                   {% for photo in recommendations %}
                   {% if recommendations.index(photo) == 0 %}
                   <div class="item active">
@@ -43,8 +45,10 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-  <button class="half_page_button like_button_red hover_button" name="submit_button" type="submit" value="Dislike">Decline</button>
-  <button class="half_page_button like_button_green hover_button" name="submit_button" type="submit" value="Like">Accept</button>
+  <button class="half_page_button like_button_red hover_button"
+          onclick="likeProfile({{recommendations[0].ProfileId}}, false)">Dislike</button>
+  <button class="half_page_button like_button_green hover_button"
+          onclick="likeProfile({{recommendations[0].ProfileId}}, true)">Like</button>
 
 </div>
 
