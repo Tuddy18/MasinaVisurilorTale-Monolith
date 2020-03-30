@@ -1,11 +1,21 @@
 import datetime
 
-from app import app
+from flask_sse import sse
+
 from app.config import mysql
-from flask import session
-from app.user.login import is_logged_in
+from flask import session, Flask
 from flask import request, jsonify
-from pywebpush import webpush
+
+app = Flask(__name__)
+app.config["REDIS_URL"] = "redis://localhost"
+app.register_blueprint(sse, url_prefix='/stream')
+
+
+@app.route('/send/<first_person_id>/<second_person_id>')
+def send_message(first_person_id, second_person_id):
+    sse.publish(get_conversation_from_db(first_person_id, second_person_id),
+                type="{}/{}".format(first_person_id, second_person_id))
+    return "Message sent!"
 
 
 @app.route('/chat', methods=['GET', 'POST'])
@@ -43,27 +53,20 @@ def add_chat_message(message):
     cur.execute("insert into message(FirstProfileId, SecondProfileId, MessageDateTime) values ({},{}, '{}')".format(
         profile_id, second_profile_id, str(datetime.datetime.now())))
     mysql.connection.commit()
-    try:
-        send_web_push(second_profile_id, message)
-        return jsonify({'success': 1})
-    except Exception as e:
-        print("error", e)
-        return jsonify({'failed': str(e)})
+    return ""
 
 
 @app.route('/chat/conversation/<second_person_id>')
 def get_conversation(second_person_id):
-    cur = mysql.connection.cursor()
     profile_id = session["accountId"]
-    cur.execute(
-        "select * from message where FirstProfileId = {} and SecondProfileId = {}  order by MessageDateTime desc".format(
-            profile_id, second_person_id))
-    messages = cur.fetchall()
+    messages = get_conversation_from_db(profile_id, second_person_id)
     return jsonify(messages)
 
 
-def send_web_push(subscription_information, message_body):
-    return webpush(
-        subscription_info=subscription_information,
-        data=message_body
-    )
+def get_conversation_from_db(first_person_id, second_person_id):
+    cur = mysql.connection.cursor()
+    cur.execute(
+        "select * from message where FirstProfileId = {} and SecondProfileId = {}  order by MessageDateTime desc".format(
+            first_person_id, second_person_id))
+    messages = cur.fetchall()
+    return messages
