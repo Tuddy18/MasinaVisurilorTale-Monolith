@@ -10,30 +10,36 @@
 
     <!-- Page Content -->
     <div style="margin-left:28%">
-    <h2>Messages</h2>
+        <h2>Messages</h2>
 
-    <div class="container_chat" style="width:auto">
-        <img src="/static/tv.jpg" alt="Avatar" style="width:100%;">
-        <p>Hello. How are you today?</p>
-        <span class="time-right_chat">11:00</span>
+        <div class="container_chat" style="width:auto">
+            <img src="/static/tv.jpg" alt="Avatar" style="width:100%;">
+            <p>Hello. How are you today?</p>
+            <span class="time-right_chat">11:00</span>
+        </div>
+
+        <div class="container_chat darker_chat" style="width:auto">
+            <img src="/static/lada.jpg" alt="Avatar" class="right" style="width:100%;">
+            <p>Hey! I'm fine. Thanks for asking!</p>
+            <span class="time-left_chat">11:01</span>
+        </div>
+
+        <div class="container_chat" style="width:auto">
+            <img src="/static/tv.jpg" alt="Avatar" style="width:100%;">
+            <p>Sweet! So, what do you wanna do today?</p>
+            <span class="time-right_chat">11:02</span>
+        </div>
+
+        <div class="container_chat darker_chat" style="width:auto">
+            <img src="/static/lada.jpg" alt="Avatar" class="right" style="width:100%;">
+            <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
+            <span class="time-left_chat">11:05</span>
+        </div>
+    </div>
+    <div style="margin-left:28%">
+        <label for="fname">Message:</label><br>
+        <input type="text" id="fname" name="fname" style="width: 88%">
+        <button>Send</button><br>
     </div>
 
-    <div class="container_chat darker_chat" style="width:auto">
-        <img src="/static/lada.jpg" alt="Avatar" class="right" style="width:100%;">
-        <p>Hey! I'm fine. Thanks for asking!</p>
-        <span class="time-left_chat">11:01</span>
-    </div>
-
-    <div class="container_chat" style="width:auto">
-        <img src="/static/tv.jpg" alt="Avatar" style="width:100%;">
-        <p>Sweet! So, what do you wanna do today?</p>
-        <span class="time-right_chat">11:02</span>
-    </div>
-
-    <div class="container_chat darker_chat" style="width:auto">
-        <img src="/static/lada.jpg" alt="Avatar" class="right" style="width:100%;">
-        <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
-        <span class="time-left_chat">11:05</span>
-    </div>
-    </div>>
 {% endblock %}
