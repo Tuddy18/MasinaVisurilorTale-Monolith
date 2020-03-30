@@ -17,7 +17,7 @@ def placeOrder(cartId):
         return render_template('place-order.html', orderId=orderId)
     return render_template('No orders')
 
-@app.route('/orders')
+@app.route('/chat')
 @is_logged_in
 def orders():
     cur = mysql.connection.cursor()
@@ -26,5 +26,5 @@ def orders():
 
     if result > 0:
         print("DATA = ",data)
-        return render_template('orders.html', orders=data)
+        return render_template('chat.html', orders=data)
     return render_template('index.html')
