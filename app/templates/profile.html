@@ -81,20 +81,19 @@
             <div class="attributes-container">
                 <div class="description">
                     <h3>Preferences</h3>
+                    {% for preference in preferences %}
+
                     <div class="chip">
-                        experienced driver
-                        <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
-                    </div>
-                    <div class="chip">
-                        race enthusiast
-                        <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
-                    </div>
-                    <div class="chip">
-                        leather lover
-                        <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
+                        {{preference}}
+                        <span class="closebtn" onclick="removePreference(this, '{{preference}}')">&times;</span>
                     </div>
 
+                    {% endfor %}
 
+                    <div class="add-chip">
+                        <input id="preference_to_be_added" type="text" style="display:none;">
+                        <span class="addbtn" onclick="$('#preference_to_be_added').show();">&plus;</span>
+                    </div>
                 </div>
             </div>
         </div>

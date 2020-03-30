@@ -5,6 +5,13 @@ $( document ).ready(function() {
             addFeature( $('#feature_to_be_added').val());
         }
     });
+
+
+    $('#preference_to_be_added').on('keypress', function(e){
+        if(e.which === 13){
+            addPreference( $('#preference_to_be_added').val());
+        }
+    });
 });
 
 function removeFeature(clicked_button, feature_text) {
@@ -36,14 +43,39 @@ function addFeature(feature_text) {
         $('#feature_to_be_added').hide();
 
         location.reload();
+    }
+   });
+}
 
-//        var chips_container =  $('#feature_to_be_added').parent().parent();
-//        var new_chip = $("<div>");
-//        new_chip.addClass("chip");
-//        new_chip.textContent = feature_text;
-//        new_chip.show();
-//
-//        chips_container.add(new_chip);
+function removePreference(clicked_button, preference_text) {
+//    $.ajax({url:'/profile/remove-chip' + preference_name});
+
+    $.ajax({
+    type: 'POST',
+    url: '/profile/remove-preference',
+    data: {
+        'preference_text': preference_text
+    },
+    success: function(msg){
+        console.log('Deleted Preference: ' + preference_text);
+        clicked_button.parentElement.style.display='none';
+    }
+});
+}
+
+
+function addPreference(preference_text) {
+    $.ajax({
+    type: 'POST',
+    url: '/profile/add-preference',
+    data: {
+        'preference_text': preference_text
+    },
+    success: function(msg){
+        console.log('Added Preference: ' + preference_text);
+        $('#preference_to_be_added').hide();
+
+        location.reload();
     }
    });
 }

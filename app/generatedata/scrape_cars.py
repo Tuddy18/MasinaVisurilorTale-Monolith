@@ -55,4 +55,12 @@ def get_one_announcements_page_data(url):
     return cars
 
 
-get_one_announcements_page_data(get_scraping_page_url())
+def get_all_announcements():
+    global number_of_pages
+    cars = []
+    for i in range(number_of_pages):
+        cars.append(get_one_announcements_page_data(get_scraping_page_url()))
+    return cars
+
+
+get_all_announcements()

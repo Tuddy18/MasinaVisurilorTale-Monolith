@@ -144,3 +144,9 @@ button:hover, a:hover {
     max-width: 150px;
     margin-top: 12px;
 }
+
+#preference_to_be_added {
+    max-height: 25px;
+    max-width: 150px;
+    margin-top: 12px;
+}
