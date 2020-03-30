@@ -8,3 +8,4 @@ from app.match import match
 from app.orders import orders
 from app.payment import payment
 from app.profile import profile
+from app.chat import chat
