@@ -4,6 +4,16 @@ from app.config import mysql
 from flask import request, render_template, flash, redirect, url_for, session, jsonify
 from app.user.login import is_logged_in
 
+@app.route('/profile/update-description',  methods = ['POST'])
+@is_logged_in
+def update_description():
+    text = request.form["description_text"]
+    cur = mysql.connection.cursor()
+    cur.execute("Update Profile set Description = %s where ProfileId = %s", (text, str(session["ProfileId"])))
+    mysql.connection.commit()
+    resp = jsonify(success=True)
+    return resp
+
 @app.route('/profile/add-photo',  methods = ['POST'])
 @is_logged_in
 def profile_add_photo():
