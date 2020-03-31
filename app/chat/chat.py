@@ -4,9 +4,11 @@ from flask_sse import sse
 
 from app import app
 from app.config import mysql
-from flask import session
-from flask import request, jsonify
+from flask import session, Flask
+from flask import request, jsonify, render_template
+from app import app
 
+app.config["REDIS_URL"] = "redis://localhost"
 app.register_blueprint(sse, url_prefix='/stream')
 
 

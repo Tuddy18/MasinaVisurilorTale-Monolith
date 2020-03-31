@@ -33,6 +33,17 @@
             </ol>
 
             <div class="carousel-inner profile-carousel-inner">
+
+
+                <div class="add_profile_pic">
+                    <button class="w3-button w3-circle"  onclick="$('#photo_to_be_added').show();">&plus;</button>
+                    <input class="hidden_input" id="photo_to_be_added" type="text" style="display:none;">
+
+                </div>
+                <div class="remove_profile_pic">
+                    <button class="w3-button w3-circle" onclick="removePhoto()">&times;</button>
+                </div>
+
                 {% for photo in profile_photos %}
                 {% if photo[0] == 0 %}
                 <div class="item active">
@@ -72,7 +83,7 @@
 
                     {% endfor %}
                     <div class="add-chip">
-                        <input id="feature_to_be_added" type="text" style="display:none;">
+                        <input class="hidden_input" id="feature_to_be_added" type="text" style="display:none;">
                         <span class="addbtn" onclick="$('#feature_to_be_added').show();">&plus;</span>
                     </div>
                 </div>
@@ -91,7 +102,7 @@
                     {% endfor %}
 
                     <div class="add-chip">
-                        <input id="preference_to_be_added" type="text" style="display:none;">
+                        <input class="hidden_input" id="preference_to_be_added" type="text" style="display:none;">
                         <span class="addbtn" onclick="$('#preference_to_be_added').show();">&plus;</span>
                     </div>
                 </div>
