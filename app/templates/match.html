@@ -35,6 +35,15 @@
                   {% endfor %}
               </div>
 
+              <div class="dislike">
+                    <button class="w3-button w3-circle"
+                            onclick="likeProfile({{recommendations[0].ProfileId}}, false)">&times;</button>
+              </div>
+              <div class="like">
+                    <button class="w3-button w3-circle"
+                            onclick="likeProfile({{recommendations[0].ProfileId}}, true)">&plus;</button>
+              </div>
+
     <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left"></span>
@@ -45,10 +54,6 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-  <button class="half_page_button like_button_red hover_button"
-          onclick="likeProfile({{recommendations[0].ProfileId}}, false)">Dislike</button>
-  <button class="half_page_button like_button_green hover_button"
-          onclick="likeProfile({{recommendations[0].ProfileId}}, true)">Like</button>
 
 </div>
 

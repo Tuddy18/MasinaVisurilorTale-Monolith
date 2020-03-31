@@ -6,47 +6,38 @@ div.first {
    display: inline-block;
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 50%;
+  background: black;
   overflow: hidden;
   display: flex;
     justify-content: center;
     align-items: center;
 }
 
-button.like_button_green {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
+.like{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  font-weight: 600;
+    font-size: 40px;
+  color: #fff;
+}
+.dislike{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+      font-size: 40px;
+   font-weight: 600;
+  color: #fff;
+}
+.like button{
+    padding: 7px 20px;
+        opacity: 0.7;
+}
+.dislike button{
+    padding: 7px 20px;
+    opacity: 0.7;
 }
 
-button.like_button_red {
-  background-color: #DC143C; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-}
-
-button.hover_button:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-}
-
-button.half_page_button {
-    width: 49.4%;
-}
