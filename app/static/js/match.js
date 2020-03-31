@@ -7,8 +7,7 @@ function likeProfile(profile_id, liked) {
         'liked': liked
     },
     success: function(msg){
-        console.log("Added match: {0} {1}.".format(profile_id, liked))
-        location.reload();
+        location.reload(true);
     }
    });
 }
