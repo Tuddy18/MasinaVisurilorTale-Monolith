@@ -73,6 +73,5 @@ def match():
         cur.close()
         return render_template('match.html', recommendations=recommendations)
     else:
-        mysql.connection.commit()
         cur.close()
         return render_template('matchEmpty.html')
