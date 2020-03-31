@@ -1,4 +1,7 @@
 $( document ).ready(function() {
+    $("#profile_description").blur(function(e){
+        updateDescription( $("#profile_description").first().text());
+    });
     $('#photo_to_be_added').on('keypress', function(e){
         if(e.which === 13){
             addPhoto( $('#photo_to_be_added').val());
@@ -34,6 +37,18 @@ function addChip($chips_parent, text, remove_function){
         $chips_parent = $chips_parent.append(node);
 }
 
+function updateDescription(new_description){
+     $.ajax({
+    type: 'POST',
+    url: '/profile/update-description',
+    data: {
+        'description_text': new_description
+    },
+    success: function(msg){
+        console.log('Updated description: ' + new_description);
+    }
+   });
+}
 function addPhoto(photo_url){
     $.ajax({
     type: 'POST',
