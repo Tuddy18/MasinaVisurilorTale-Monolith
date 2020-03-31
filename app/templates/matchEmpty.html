@@ -1,4 +1,11 @@
 {% extends 'layout.html' %}
 {% block body %}
-  <h1> There are no recommendations for you at the moment </h1>
+<div class="match-alert">
+  <span class="match-closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  There are no recommendations for you at the moment.
+  </div>
+<div class="sadness">
+
+</div>
+
 {% endblock %}

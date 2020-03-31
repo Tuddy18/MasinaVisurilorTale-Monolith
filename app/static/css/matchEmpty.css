@@ -1,0 +1,30 @@
+/* The alert message box */
+.match-alert {
+  padding: 2%;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 10%;
+}
+
+/* The close button */
+.match-closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.match-closebtn:hover {
+  color: black;
+}
+
+.sadness {
+  content:url("/static/nomorepeople.jpg");
+}
