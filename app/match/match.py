@@ -34,15 +34,16 @@ def match_add():
                              .format(liked_profile_id, profile_id))
         if result > 0:
             cur.execute("UPDATE MatchedContact "
-                        "SET FirstProfileLike = {0}, MatchDateTime = \'{1}\' "
+                        "SET SecondProfileLike = {0}, MatchDateTime = \'{1}\' "
                         "WHERE FirstProfileId = {2} AND SecondProfileId = {3};"
-                        .format(liked, datetime.now(), liked_profile_id, profile_id))
+                        .format(liked, now, liked_profile_id, profile_id))
         else:
             cur.execute("INSERT INTO MatchedContact(FirstProfileId, SecondProfileId"
                         ", FirstProfileLike, MatchDateTime) "
                         "VALUES({0}, {1}, {2}, \'{3}\');"
                         .format(profile_id, liked_profile_id, liked, now))
     mysql.connection.commit()
+    cur.close()
     resp = jsonify(success=True)
     return resp
 
@@ -53,24 +54,25 @@ def match():
     cur = mysql.connection.cursor()
     cur.execute("SELECT * from Profile where AccountId = %s", str(session["accountId"]))
     profile = cur.fetchone()
-    cur.execute("SELECT * FROM Photo "
-                "INNER JOIN (SELECT * FROM Photo "
-                "WHERE Photo.ProfileId != {0} AND photo.ProfileId NOT IN ("
-                "SELECT matchedcontact.FirstProfileId FROM matchedcontact "
-                "WHERE matchedcontact.SecondProfileId = {0} "
-                "AND matchedcontact.SecondProfileLike != NULL "
-                "UNION "
-                "SELECT matchedcontact.SecondProfileId FROM matchedcontact "
-                "WHERE matchedcontact.FirstProfileId = {0} " 
-                "AND matchedcontact.FirstProfileLike != NULL ) LIMIT 1) t "
-                "ON Photo.ProfileId = t.ProfileId;"
-                .format(str(profile["ProfileId"])))
-    recommendations = cur.fetchall()
-    if recommendations > 0:
+    result = cur.execute("SELECT * FROM Photo "
+                         "INNER JOIN (SELECT * FROM Photo "
+                         "WHERE Photo.ProfileId != {0} AND photo.ProfileId NOT IN ("
+                         "SELECT matchedcontact.FirstProfileId FROM matchedcontact "
+                         "WHERE matchedcontact.SecondProfileId = {0} "
+                         "AND (matchedcontact.SecondProfileLike = 1 OR matchedcontact.SecondProfileLike = 0)  "
+                         "UNION "
+                         "SELECT matchedcontact.SecondProfileId FROM matchedcontact "
+                         "WHERE matchedcontact.FirstProfileId = {0} " 
+                         "AND (matchedcontact.FirstProfileLike = 1 OR matchedcontact.FirstProfileLike = 0)) "
+                         "LIMIT 1) t ON Photo.ProfileId = t.ProfileId;"
+                         .format(str(profile["ProfileId"])))
+
+    if result > 0:
+        recommendations = cur.fetchall()
+        mysql.connection.commit()
+        cur.close()
         return render_template('match.html', recommendations=recommendations)
     else:
-        flash('There are no recommendations for you at the moment')
-
-    mysql.connection.commit()
-    cur.close()
-    return redirect(url_for('match'))
+        mysql.connection.commit()
+        cur.close()
+        return render_template('matchEmpty.html')
