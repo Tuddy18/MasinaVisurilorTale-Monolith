@@ -51,15 +51,6 @@ CREATE TABLE IF NOT EXISTS Features (
     CONSTRAINT FK_Feature_Profile FOREIGN KEY (ProfileId) REFERENCES Profile(ProfileId)
 );
 
-CREATE TABLE IF NOT EXISTS Message (
-    MessageId INT(50) NOT NULL AUTO_INCREMENT,
-    MatchedContactId INT(50) NOT NULL,
-    MessageDateTime DATETIME NOT NULL,
-    MessageText VARCHAR(500) NOT NULL,
-    CONSTRAINT PK_Message PRIMARY KEY (MessageId),
-    CONSTRAINT FK_Message_MatchedContact FOREIGN KEY (MatchedContactId) REFERENCES MatchedContact(MatchedContactId)
-);
-
 CREATE TABLE IF NOT EXISTS MatchedContact (
     MatchedContactId INT(50) NOT NULL AUTO_INCREMENT,
     FirstProfileId INT(50) NOT NULL,
@@ -71,6 +62,17 @@ CREATE TABLE IF NOT EXISTS MatchedContact (
     CONSTRAINT FK_MatchedContact_First_Profile FOREIGN KEY (FirstProfileId) REFERENCES Profile(ProfileId),
     CONSTRAINT FK_MatchedContact_Second_Profile FOREIGN KEY (SecondProfileId) REFERENCES Profile(ProfileId)
 );
+
+
+CREATE TABLE IF NOT EXISTS Message (
+    MessageId INT(50) NOT NULL AUTO_INCREMENT,
+    MatchedContactId INT(50) NOT NULL,
+    MessageDateTime DATETIME NOT NULL,
+    MessageText VARCHAR(500) NOT NULL,
+    CONSTRAINT PK_Message PRIMARY KEY (MessageId),
+    CONSTRAINT FK_Message_MatchedContact FOREIGN KEY (MatchedContactId) REFERENCES MatchedContact(MatchedContactId)
+);
+
 
 INSERT INTO Account(Username, Password) VALUES('ioan', '$5$rounds=535000$2ZFeT0eS3yd35j//$xejm4M1kLWr1SzIx8ajNnSZLikVnwrsFNOQ8CINSd/2');
 INSERT INTO Account(Username, Password) VALUES('tuddy', '$5$rounds=535000$2ZFeT0eS3yd35j//$xejm4M1kLWr1SzIx8ajNnSZLikVnwrsFNOQ8CINSd/2');
