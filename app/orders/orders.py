@@ -17,14 +17,14 @@ def placeOrder(cartId):
         return render_template('place-order.html', orderId=orderId)
     return render_template('No orders')
 
-@app.route('/chat')
-@is_logged_in
-def orders():
-    cur = mysql.connection.cursor()
-    result = cur.execute("SELECT * FROM MatchedContact")
-    data = cur.fetchall()
-
-    if result > 0:
-        print("DATA = ",data)
-        return render_template('chat.html', orders=data)
-    return render_template('index.html')
+# @app.route('/chat')
+# @is_logged_in
+# def orders():
+#     cur = mysql.connection.cursor()
+#     result = cur.execute("SELECT * FROM MatchedContact")
+#     data = cur.fetchall()
+#
+#     if result > 0:
+#         print("DATA = ",data)
+#         return render_template('chat.html', orders=data)
+#     return render_template('index.html')
