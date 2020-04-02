@@ -27,7 +27,7 @@ def get_chat(second_person_id):
     profile_id = session["accountId"]
     cur = mysql.connection.cursor()
     cur.execute(
-        "select * from message where MatchedContactId = (select MatchedContactId from matchedcontact where ((FirstProfileId ={} and SecondProfileId = {}) or (FirstProfileId ={} and SecondProfileId ={}))) order by MessageDateTime desc".format(
+        "select * from message where MatchedContactId = (select MatchedContactId from matchedcontact where ((FirstProfileId ={} and SecondProfileId = {}) or (FirstProfileId ={} and SecondProfileId ={}))) order by MessageDateTime".format(
             profile_id, second_person_id, second_person_id, profile_id))
     messages = cur.fetchall()
     return jsonify(messages)
@@ -42,5 +42,4 @@ def add_chat_message():
         "insert into message(MatchedContactId, MessageDateTime, MessageText, MessageOwner) values ({},'{}','{}',{})".format(
             data['MatchedContactId'], datetime.datetime.now(), data['MessageText'], profile_id))
     mysql.connection.commit()
-    send_message(data['MessageText'])
     return ""
