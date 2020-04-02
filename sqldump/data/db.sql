@@ -69,8 +69,10 @@ CREATE TABLE IF NOT EXISTS Message (
     MatchedContactId INT(50) NOT NULL,
     MessageDateTime DATETIME NOT NULL,
     MessageText VARCHAR(500) NOT NULL,
+    MessageOwner INT(50) NOT NULL,
     CONSTRAINT PK_Message PRIMARY KEY (MessageId),
-    CONSTRAINT FK_Message_MatchedContact FOREIGN KEY (MatchedContactId) REFERENCES MatchedContact(MatchedContactId)
+    CONSTRAINT FK_Message_MatchedContact FOREIGN KEY (MatchedContactId) REFERENCES MatchedContact(MatchedContactId),
+    CONSTRAINT FK_Message_Owner FOREIGN KEY (MessageOwner) REFERENCES  Profile(ProfileId)
 );
 
 
@@ -97,7 +99,7 @@ INSERT INTO MatchedContact(FirstProfileId, SecondProfileId, FirstProfileLike, Ma
 VALUES (1, 3, true, '2017:10:10');
 INSERT INTO MatchedContact(FirstProfileId, SecondProfileId, SecondProfileLike, MatchDateTime)
 VALUES (4, 1, true, '2017:11:11');
-INSERT INTO MatchedContact(FirstProfileId, SecondProfileId, SecondProfileLike, MatchDateTime)
-VALUES (3, 1, true, '2017:11:11');
+
+insert into Message(MatchedContactId, MessageDateTime, MessageText, MessageOwner) value (1, '2018:10:10', 'ola', 1)
 
 
