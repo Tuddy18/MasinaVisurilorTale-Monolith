@@ -39,6 +39,7 @@
                     <button class="w3-button w3-circle"
                             onclick="likeProfile({{recommendations[0].ProfileId}}, false)">&times;</button>
               </div>
+
               <div class="like">
                     <button class="w3-button w3-circle"
                             onclick="likeProfile({{recommendations[0].ProfileId}}, true)">&plus;</button>
@@ -55,6 +56,9 @@
     </a>
   </div>
 
+
+          <div class="match-name">{{recommendations[0].Name}}</div>
 </div>
+
 
 {% endblock %}

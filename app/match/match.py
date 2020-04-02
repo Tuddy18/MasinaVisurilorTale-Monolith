@@ -54,17 +54,20 @@ def match():
     cur = mysql.connection.cursor()
     cur.execute("SELECT * from Profile where AccountId = %s", str(session["accountId"]))
     profile = cur.fetchone()
-    result = cur.execute("SELECT * FROM Photo "
+    result = cur.execute("SELECT * FROM photo "
+                         "INNER JOIN profile "
+                         "ON profile.ProfileId = photo.ProfileId AND profile.ProfileType NOT IN "
+                         "(SELECT profile.ProfileType FROM profile WHERE profile.ProfileId = {0}) "
                          "INNER JOIN (SELECT * FROM Photo "
-                         "WHERE Photo.ProfileId != {0} AND photo.ProfileId NOT IN ("
+                         "WHERE photo.ProfileId != {0} AND photo.ProfileId NOT IN ("
                          "SELECT matchedcontact.FirstProfileId FROM matchedcontact "
                          "WHERE matchedcontact.SecondProfileId = {0} "
                          "AND (matchedcontact.SecondProfileLike = 1 OR matchedcontact.SecondProfileLike = 0)  "
                          "UNION "
                          "SELECT matchedcontact.SecondProfileId FROM matchedcontact "
-                         "WHERE matchedcontact.FirstProfileId = {0} " 
+                         "WHERE matchedcontact.FirstProfileId = {0} "
                          "AND (matchedcontact.FirstProfileLike = 1 OR matchedcontact.FirstProfileLike = 0)) "
-                         "LIMIT 1) t ON Photo.ProfileId = t.ProfileId;"
+                         ") t ON photo.ProfileId = t.ProfileId LIMIT 1"
                          .format(str(profile["ProfileId"])))
 
     if result > 0:
