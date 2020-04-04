@@ -1,6 +1,8 @@
 {% extends 'layout.html' %}
 
 {% block body %}
+<script type="text/javascript"
+        src="{{ url_for('static', filename='js/home.js') }}"></script>
   <h1>Login<h1>
     <form action="" method="POST">
       <div class="form-group">
@@ -13,7 +15,13 @@
         <input type="password" name="password" class="form-control" value={{request.form.password}}>
         <!-- <input type="password" name="password" class="form-control"> -->
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" name="submit" value="login" class="btn btn-primary">Submit</button>
+
     </form>
+
+    <h1>Don't have an account?</h1>
+    <button class="btn btn-primary" onclick="goToRegister()">Register</button>
+
+
 
 {% endblock %}

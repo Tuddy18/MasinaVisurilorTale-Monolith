@@ -13,7 +13,7 @@ function getChatMessages(second_person_id) {
             }
 
         });
-    }, 5000);
+    }, 2000);
 
 }
 
@@ -24,7 +24,7 @@ function addChatMessage(message) {
             MatchedContactId: matched_contact_id,
             MessageText: message
         }, function () {
-            document.getElementById("messages").innerHTML += ' <div class="container_chat" style="width:auto">\n' +
+            document.getElementById("messages").innerHTML += ' <div class="container_chat">\n' +
                 '            <img src="/static/tv.jpg" alt="Avatar" style="width:100%;">\n' +
                 '            <p>' + message + '</p>\n' +
                 '            <span class="time-right_chat">11:02</span>\n' +

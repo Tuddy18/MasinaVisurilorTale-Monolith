@@ -9,13 +9,27 @@ from app.config import mysql
 def register():
     form = RegisterForm(request.form)
     if request.method == 'POST' and form.validate():
-        email = form.email.data
         username = form.username.data
         password = sha256_crypt.encrypt(str(form.password.data))
+        name = form.name.data
+        profileType = form.profileType.data
+        description = form.description.data
 
         # Create cursor
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO user(username, password, email, type) VALUES (%s, %s, %s, %s)", (username, password, email, "customer"))
+
+        if cur.execute("SELECT * FROM Account WHERE Username = %s", [username]) > 0:
+            return render_template('register.html', form=form)
+
+        cur.execute("INSERT INTO Account(Username, Password) VALUES (%s, %s)", (username, password))
+        mysql.connection.commit()
+
+        cur.execute("SELECT AccountId FROM Account WHERE Username = %s", [username])
+        account_id = cur.fetchall()[0]
+
+        cur.execute("INSERT INTO Profile(AccountId, Name, ProfileType, Description) VALUES (%s, %s, %s, %s)",
+                    (account_id['AccountId'], name, profileType, description))
+
 
         # Commit to DB
         mysql.connection.commit()
@@ -25,5 +39,5 @@ def register():
 
         flash('You are now registered and can login', 'success')
 
-        return redirect(url_for('index'))
+        return redirect(url_for('login'))
     return render_template('register.html', form=form)
