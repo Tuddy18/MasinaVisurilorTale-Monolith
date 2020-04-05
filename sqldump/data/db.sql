@@ -73,16 +73,18 @@ CREATE TABLE IF NOT EXISTS Message (
     CONSTRAINT FK_Message_MatchedContact FOREIGN KEY (MatchedContactId) REFERENCES MatchedContact(MatchedContactId)
 );
 
+-- INSERT MOCKUP CARS INTO DB
 
-INSERT INTO Account(Username, Password) VALUES('ioan', '$5$rounds=535000$2ZFeT0eS3yd35j//$xejm4M1kLWr1SzIx8ajNnSZLikVnwrsFNOQ8CINSd/2');
-INSERT INTO Account(Username, Password) VALUES('tuddy', '$5$rounds=535000$2ZFeT0eS3yd35j//$xejm4M1kLWr1SzIx8ajNnSZLikVnwrsFNOQ8CINSd/2');
-INSERT INTO Account(Username, Password) VALUES('sinzi', '$5$rounds=535000$2ZFeT0eS3yd35j//$xejm4M1kLWr1SzIx8ajNnSZLikVnwrsFNOQ8CINSd/2');
-INSERT INTO Account(Username, Password) VALUES('alex', '$5$rounds=535000$2ZFeT0eS3yd35j//$xejm4M1kLWr1SzIx8ajNnSZLikVnwrsFNOQ8CINSd/2');
+INSERT INTO Account(Username, Password) VALUES('bmw', '$5$rounds=535000$2ZFeT0eS3yd35j//$xejm4M1kLWr1SzIx8ajNnSZLikVnwrsFNOQ8CINSd/2');
+INSERT INTO Account(Username, Password) VALUES('chevy', '$5$rounds=535000$2ZFeT0eS3yd35j//$xejm4M1kLWr1SzIx8ajNnSZLikVnwrsFNOQ8CINSd/2');
+INSERT INTO Account(Username, Password) VALUES('beetle', '$5$rounds=535000$2ZFeT0eS3yd35j//$xejm4M1kLWr1SzIx8ajNnSZLikVnwrsFNOQ8CINSd/2');
+INSERT INTO Account(Username, Password) VALUES('mercedes', '$5$rounds=535000$2ZFeT0eS3yd35j//$xejm4M1kLWr1SzIx8ajNnSZLikVnwrsFNOQ8CINSd/2');
 
-INSERT INTO Profile(AccountId, Name, ProfileType, Description ) VALUES(1, 'BMW', 'Car', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum venenatis bibendum. Maecenas id porta nibh. Quisque ut lorem viverra, maximus risus sit amet, aliquet nulla. Aliquam erat volutpat. Etiam ac pellentesque ante. Mauris condimentum molestie tristique. Phasellus sit amet vehicula metus.');
-INSERT INTO Profile(AccountId, Name, ProfileType, Description ) VALUES(2, 'Chevy', 'Car', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum venenatis bibendum. Maecenas id porta nibh. Quisque ut lorem viverra, maximus risus sit amet, aliquet nulla. Aliquam erat volutpat. Etiam ac pellentesque ante. Mauris condimentum molestie tristique. Phasellus sit amet vehicula metus.');
-INSERT INTO Profile(AccountId, Name, ProfileType, Description ) VALUES(3, 'Beatle', 'Car', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum venenatis bibendum. Maecenas id porta nibh. Quisque ut lorem viverra, maximus risus sit amet, aliquet nulla. Aliquam erat volutpat. Etiam ac pellentesque ante. Mauris condimentum molestie tristique. Phasellus sit amet vehicula metus.');
-INSERT INTO Profile(AccountId, Name, ProfileType, Description ) VALUES(4, 'Mercedes', 'Car', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum venenatis bibendum. Maecenas id porta nibh. Quisque ut lorem viverra, maximus risus sit amet, aliquet nulla. Aliquam erat volutpat. Etiam ac pellentesque ante. Mauris condimentum molestie tristique. Phasellus sit amet vehicula metus.');
+INSERT INTO Profile(AccountId, Name, ProfileType, Description ) VALUES(1, 'BMW', 'car', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum venenatis bibendum. Maecenas id porta nibh. Quisque ut lorem viverra, maximus risus sit amet, aliquet nulla. Aliquam erat volutpat. Etiam ac pellentesque ante. Mauris condimentum molestie tristique. Phasellus sit amet vehicula metus.');
+INSERT INTO Profile(AccountId, Name, ProfileType, Description ) VALUES(2, 'Chevy', 'car', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum venenatis bibendum. Maecenas id porta nibh. Quisque ut lorem viverra, maximus risus sit amet, aliquet nulla. Aliquam erat volutpat. Etiam ac pellentesque ante. Mauris condimentum molestie tristique. Phasellus sit amet vehicula metus.');
+INSERT INTO Profile(AccountId, Name, ProfileType, Description ) VALUES(3, 'Beetle', 'car', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum venenatis bibendum. Maecenas id porta nibh. Quisque ut lorem viverra, maximus risus sit amet, aliquet nulla. Aliquam erat volutpat. Etiam ac pellentesque ante. Mauris condimentum molestie tristique. Phasellus sit amet vehicula metus.');
+INSERT INTO Profile(AccountId, Name, ProfileType, Description ) VALUES(4, 'Mercedes', 'car', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum venenatis bibendum. Maecenas id porta nibh. Quisque ut lorem viverra, maximus risus sit amet, aliquet nulla. Aliquam erat volutpat. Etiam ac pellentesque ante. Mauris condimentum molestie tristique. Phasellus sit amet vehicula metus.');
+
 
 INSERT INTO Photo(ProfileId, Url) VALUES(1, 'https://www.bmw-m.com/content/dam/bmw/marketBMW_M/common/topics/magazine-article-pool/2019/bmw-m-wallpaper/bmw-m850i-individual-night-sky-gallery-01.jpg');
 
@@ -92,6 +94,18 @@ INSERT INTO Photo(ProfileId, Url) VALUES(2, 'https://i.pinimg.com/originals/44/c
 
 INSERT INTO Photo(ProfileId, Url) VALUES(3, 'https://i.pinimg.com/originals/f8/f9/a1/f8f9a1412e58338778f8eac76dea1753.jpg');
 INSERT INTO Photo(ProfileId, Url) VALUES(4, 'https://images.autotrader.com/scaler/620/420/cms/images/cars/bmw/3-series/20153seriesvs2015cclass/233385.jpg');
+
+-- INSERT MOCKUP DRIVERS INTO DB
+
+INSERT INTO Account(Username, Password) VALUES('ioan', '$5$rounds=535000$2ZFeT0eS3yd35j//$xejm4M1kLWr1SzIx8ajNnSZLikVnwrsFNOQ8CINSd/2');
+INSERT INTO Account(Username, Password) VALUES('tuddy', '$5$rounds=535000$2ZFeT0eS3yd35j//$xejm4M1kLWr1SzIx8ajNnSZLikVnwrsFNOQ8CINSd/2');
+INSERT INTO Account(Username, Password) VALUES('sinzi', '$5$rounds=535000$2ZFeT0eS3yd35j//$xejm4M1kLWr1SzIx8ajNnSZLikVnwrsFNOQ8CINSd/2');
+INSERT INTO Account(Username, Password) VALUES('alex', '$5$rounds=535000$2ZFeT0eS3yd35j//$xejm4M1kLWr1SzIx8ajNnSZLikVnwrsFNOQ8CINSd/2');
+
+INSERT INTO Profile(AccountId, Name, ProfileType, Description) VALUES(5, 'Ioan', 'driver', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum venenatis bibendum. Maecenas id porta nibh. Quisque ut lorem viverra, maximus risus sit amet, aliquet nulla. Aliquam erat volutpat. Etiam ac pellentesque ante. Mauris condimentum molestie tristique. Phasellus sit amet vehicula metus.');
+INSERT INTO Profile(AccountId, Name, ProfileType, Description ) VALUES(6, 'Tuddy', 'driver', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum venenatis bibendum. Maecenas id porta nibh. Quisque ut lorem viverra, maximus risus sit amet, aliquet nulla. Aliquam erat volutpat. Etiam ac pellentesque ante. Mauris condimentum molestie tristique. Phasellus sit amet vehicula metus.');
+INSERT INTO Profile(AccountId, Name, ProfileType, Description ) VALUES(7, 'Sinzi', 'driver', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum venenatis bibendum. Maecenas id porta nibh. Quisque ut lorem viverra, maximus risus sit amet, aliquet nulla. Aliquam erat volutpat. Etiam ac pellentesque ante. Mauris condimentum molestie tristique. Phasellus sit amet vehicula metus.');
+INSERT INTO Profile(AccountId, Name, ProfileType, Description ) VALUES(8, 'Alex', 'driver', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum venenatis bibendum. Maecenas id porta nibh. Quisque ut lorem viverra, maximus risus sit amet, aliquet nulla. Aliquam erat volutpat. Etiam ac pellentesque ante. Mauris condimentum molestie tristique. Phasellus sit amet vehicula metus.');
 
 INSERT INTO MatchedContact(FirstProfileId, SecondProfileId, FirstProfileLike, MatchDateTime)
 VALUES (1, 3, true, '2017:10:10');

@@ -29,7 +29,7 @@ def profile():
         preferences = [el["PreferenceText"] for el in cur.fetchall()]
 
 
-        profile = {"name": profile["Name"], "photo": profile_photos[0][1],
+        profile = {"name": profile["Name"], "photo": profile_photos[0][1], "profile_type": profile["ProfileType"],
                    "description": profile["Description"]}
         return render_template('profile.html', profile=profile, profile_photos=profile_photos, features=features, preferences=preferences)
 

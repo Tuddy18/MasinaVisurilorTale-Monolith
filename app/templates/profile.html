@@ -1,6 +1,8 @@
 {% extends 'layout.html' %}
 
 {% block body %}
+
+
 <script type="text/javascript"
         src="{{ url_for('static', filename='js/profile.js') }}"></script>
 <div class="card-parent">
@@ -12,7 +14,12 @@
         </div>
 
         <h1> {{profile.name}} </h1>
+
+        {% if profile.profile_type == "car" %}
         <img class="profile-type-image" src="https://cdn3.iconfinder.com/data/icons/car-icons-front-views/480/Sports_Car_Front_View-512.png" >
+        {% else %}
+        <img class="profile-type-image" src="https://cdn1.iconfinder.com/data/icons/transportation-vehicles-2/128/steering-wheel-512.png" >
+        {% endif %}
         <br>
         <div  class="description">
             <h3  contentEditable="true" id="profile_description" class="title">{{profile.description}} </h3>
@@ -47,11 +54,11 @@
                 {% for photo in profile_photos %}
                 {% if photo[0] == 0 %}
                 <div class="item active">
-                    <img class="profile-image" src="{{photo[1]}}" alt="profile_pic {{photo[0]}}" style="width: 100%;">
+                    <img class="profile-image" src="{{photo[1]}}" alt="profile_pic {{photo[0]}}">
                 </div>
                 {% else %}
                 <div class="item">
-                    <img class="profile-image" src="{{photo[1]}}" alt="profile_pic {{photo[0]}}" style="width: 100%;">
+                    <img class="profile-image" src="{{photo[1]}}" alt="profile_pic {{photo[0]}}">
                 </div>
                 {% endif %}
 
