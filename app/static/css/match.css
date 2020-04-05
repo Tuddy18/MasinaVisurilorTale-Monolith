@@ -14,14 +14,9 @@ div.first {
     align-items: center;
 }
 
-.profile_name{
-    position: absolute;
-  bottom: 20%;
-  right: 50%;
-  z-index: 10;
-  font-weight: 600;
-  font-size: 40px;
-  color: #fff;
+.match-image {
+  width: auto;
+  height: 100%;
 }
 
 .like{
@@ -52,7 +47,6 @@ div.first {
 }
 
 .match-name {
-    height: 5%;
     background: black;
     color: white;
     font-size: 30px;

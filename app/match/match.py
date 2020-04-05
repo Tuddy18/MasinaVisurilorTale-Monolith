@@ -54,20 +54,27 @@ def match():
     cur = mysql.connection.cursor()
     cur.execute("SELECT * from Profile where AccountId = %s", [str(session["accountId"])])
     profile = cur.fetchone()
-    result = cur.execute("SELECT * FROM Photo "
-                         "INNER JOIN (SELECT * FROM Photo "
+    result = cur.execute("SELECT Photo.ProfileId FROM Photo "
+                         "INNER JOIN (SELECT Photo.ProfileId FROM Photo "
                          "WHERE Photo.ProfileId != {0} AND photo.ProfileId NOT IN ("
                          "SELECT matchedcontact.FirstProfileId FROM matchedcontact "
                          "WHERE matchedcontact.SecondProfileId = {0} "
-                         "AND (matchedcontact.SecondProfileLike = 1 OR matchedcontact.SecondProfileLike = 0)  "
+                         "AND (matchedcontact.SecondProfileLike = 1 OR matchedcontact.SecondProfileLike = 0) "
                          "UNION "
                          "SELECT matchedcontact.SecondProfileId FROM matchedcontact "
-                         "WHERE matchedcontact.FirstProfileId = {0} " 
-                         "AND (matchedcontact.FirstProfileLike = 1 OR matchedcontact.FirstProfileLike = 0)) "
-                         "LIMIT 1) t ON Photo.ProfileId = t.ProfileId;"
+                         "WHERE matchedcontact.FirstProfileId = {0} "
+                         "AND (matchedcontact.FirstProfileLike = 1 OR matchedcontact.FirstProfileLike = 0)) ) "
+                         "t ON Photo.ProfileId = t.ProfileId "
+                         "INNER JOIN (SELECT Profile.ProfileId FROM Profile "
+                         "WHERE ProfileType NOT IN (SELECT ProfileType FROM Profile WHERE ProfileId = {0})) p "
+                         "ON Photo.ProfileId = p.ProfileId"
                          .format(str(profile["ProfileId"])))
 
     if result > 0:
+        match_id = cur.fetchall()[0]['ProfileId']
+        cur.execute("SELECT * FROM Photo "
+                    "INNER JOIN (SELECT * FROM Profile) p "
+                    "ON Photo.ProfileId = p.ProfileId WHERE Photo.ProfileId = {0}".format(match_id))
         recommendations = cur.fetchall()
         mysql.connection.commit()
         cur.close()
