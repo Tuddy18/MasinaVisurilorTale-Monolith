@@ -20,18 +20,37 @@ body {
   display: table;
 }
 
-.container_chat img {
-  float: left;
-  max-width: 60px;
-  width: 100%;
-  margin-right: 20px;
+.contact-avatar{
+    display: inline-flex;
+}
+.cropped-avatar{
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
   border-radius: 50%;
+
+      justify-content: center;
+    align-items: center;
+    display: inline-flex;
 }
 
-.container_chat img.right {
+.avatar-image{
+     width: auto;
+    height: 100%;
+}
+.cropped-avatar-right {
   float: right;
   margin-left: 20px;
   margin-right:0;
+}
+
+
+.cropped-avatar-left {
+  float: left;
+  margin-right: 20px;
+  margin-left:0;
 }
 
 .time-left_chat {
@@ -57,7 +76,7 @@ body {
 
 
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  width: 12%;
+  width: 15%;
   min-width: 100px;
   height: 55%;
   min-height: 200px;
@@ -70,6 +89,18 @@ body {
 
 /* The navigation menu links */
 .sidenav a {
+  padding-top: 6px;
+  padding-right: 8px;
+  padding-bottom: 6px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+}
+
+.sidenav button {
+background-color: transparent;
+    border: transparent;
   padding-top: 6px;
   padding-right: 8px;
   padding-bottom: 6px;
@@ -114,14 +145,14 @@ body {
   min-width: 200px;
   margin: 1%;
 
-  left: 27.5%;
+  left: 30.5%;
 }
 
 .message-box {
    height: 9%;
-   width: 47.5%;
+   width: 50.5%;
    position: absolute;
-   bottom: 10%;
+   bottom: 5%;
    left: 16%;
    padding-top: 6px;
    padding-bottom: 6px;
@@ -132,7 +163,7 @@ body {
 }
 
 .message-input {
-    width: 90%;
+    width: 80%;
     height: 100%;
     padding-left: 2%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -140,13 +171,13 @@ body {
 }
 
 .send-button {
-    #display: inline-block;
+    float: right;
     border: none;
-    height: 90%;
-    width: 10%;
-    position: absolute;
-    background: url(/static/send.png);
-    background-size:cover;
+    background-image: url(https://image.flaticon.com/icons/svg/60/60525.svg);
+    background-size: 100%;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
 }
 
 .messages {

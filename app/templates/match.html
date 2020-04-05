@@ -22,14 +22,11 @@
                   {% if recommendations.index(photo) == 0 %}
                   <div class="item active">
                       <img src= "{{photo.Url}}" alt="photo" style="width:100%;">
-                      <div class="carousel-caption first">
-                      </div>
+
                   </div>
                   {% else %}
                   <div class="item">
                       <img src= "{{photo.Url}}" alt="photo" style="width:100%;">
-                      <div class="carousel-caption first">
-                      </div>
                   </div>
                   {% endif %}
                   {% endfor %}
@@ -42,7 +39,7 @@
 
               <div class="like">
                     <button class="w3-button w3-circle"
-                            onclick="likeProfile({{recommendations[0].ProfileId}}, true)">&plus;</button>
+                            onclick="likeProfile({{recommendations[0].ProfileId}}, true)">&#10004;</button>
               </div>
 
     <!-- Left and right controls -->

@@ -1,15 +1,21 @@
-<script type="text/javascript"
-        src="{{ url_for('static', filename='js/chat.js') }}"></script>
+
 
 {% extends 'layout.html' %}
 {% block body %}
+
+<script type="text/javascript"
+        src="{{ url_for('static', filename='js/chat.js') }}"></script>
     <!-- Sidebar -->
-
-
  <div class="sidenav">
      <div class="messages">
     {% for profile in profiles %}
-        <a onclick="getChatMessages({{ profile.ProfileId }})">{{ profile.Name }}</a>
+         <div class="contact-avatar">
+             <div class="cropped-avatar">
+                       <img src="{{ profile.photo }}" alt="Avatar" class="avatar-image">
+            </div>
+            <button onclick="getChatMessages({{ profile.ProfileId }})">{{ profile.Name }}</button>
+         </div>
+
 
     {% endfor %}
          </div>
@@ -28,8 +34,11 @@
 
 <div class="message-box">
         <!--<label for="fname">Message:</label><br>-->
-        <input class="message-input" type="text" id="fname" name="fname">
-        <button class="send-button" onclick="addChatMessage($('#fname').val())"></button>
+        <input class="message-input" type="text" id="message_text" name="fname">
+        <button class="send-button" onclick="addChatMessage($('#message_text').val())">
+        </button>
+
+
 </div>
 
 

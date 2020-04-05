@@ -2,5 +2,5 @@ pywebpush
 flask
 passlib
 flask-mysqldb
-flask_sse
 Flask-WTF
+flask_socketio
