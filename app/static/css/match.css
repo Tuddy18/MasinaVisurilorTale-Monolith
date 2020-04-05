@@ -41,3 +41,11 @@ div.first {
     opacity: 0.7;
 }
 
+.match-name {
+    height: 5%;
+    background: black;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    vertical-align: middle;
+}

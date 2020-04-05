@@ -4,7 +4,6 @@ body {
 }
 
 .container_chat{
-  border: 2px solid #dedede;
   background-color: #f1f1f1;
   border-radius: 5px;
   padding: 10px;
@@ -12,8 +11,7 @@ body {
 }
 
 .darker_chat {
-  border-color: #ccc;
-  background-color: #ddd;
+  background-color: #aec8e0;
 }
 
 .container_chat::after {
@@ -36,12 +34,154 @@ body {
   margin-right:0;
 }
 
+.time-left_chat {
+  float: bottom-right;
+  color: #999;
+}
+
 .time-right_chat {
-  float: right;
+  float: left;
+  position: relative;
   color: #aaa;
 }
 
-.time-left_chat {
-  float: left;
-  color: #999;
+
+/* The sidebar menu */
+.sidenav {
+  position: absolute; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  left: 15%;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 12%;
+  min-width: 100px;
+  height: 55%;
+  min-height: 200px;
+
+  background: #001a33;
+
+  margin: 1%;
+
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding-top: 6px;
+  padding-right: 8px;
+  padding-bottom: 6px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.chat {
+  height: 55%; /* Full-height: remove this if you want "auto" height */
+   /* Set the width of the sidebar */
+  min-height: 200px;
+
+  position: absolute;/* Fixed Sidebar (stay in place on scroll) */
+
+  z-index: 1; /* Stay on top */
+
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 10px;
+  padding-bottom: 6px;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 35%;
+  min-width: 200px;
+  margin: 1%;
+
+  left: 27.5%;
+}
+
+.message-box {
+   height: 9%;
+   width: 47.5%;
+   position: absolute;
+   bottom: 10%;
+   left: 16%;
+   padding-top: 6px;
+   padding-bottom: 6px;
+   padding-right: 6px;
+
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+.message-input {
+    width: 90%;
+    height: 100%;
+    padding-left: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+.send-button {
+    #display: inline-block;
+    border: none;
+    height: 90%;
+    width: 10%;
+    position: absolute;
+    background: url(/static/send.png);
+    background-size:cover;
+}
+
+.messages {
+    height: 95%;
+    width: 98%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 15px;
+}
+
+/* width */
+.messages::-webkit-scrollbar {
+  right: 26px;
+  width: 20px;
+}
+
+/* Track */
+.messages::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px black;
+  border-radius: 10px;
+}
+
+/* Handle */
+.messages::-webkit-scrollbar-thumb {
+  background: #001a33;
+  border-radius: 10px;
+}
+
+.sidenav::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px white;
+}
+
+/* Handle */
+.sidenav::-webkit-scrollbar-thumb {
+  background: white;
 }

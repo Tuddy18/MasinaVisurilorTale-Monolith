@@ -15,7 +15,7 @@ def match_add():
     now = datetime.now()
     now = now.strftime('%Y:%m:%d %H:%M:%S')
 
-    cur.execute("SELECT * from Profile where AccountId = %s", str(session["accountId"]))
+    cur.execute("SELECT * from Profile where AccountId = %s", [str(session["accountId"])])
     profile = cur.fetchone()
     profile_id = str(profile["ProfileId"])
 
@@ -52,7 +52,7 @@ def match_add():
 @is_logged_in
 def match():
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * from Profile where AccountId = %s", str(session["accountId"]))
+    cur.execute("SELECT * from Profile where AccountId = %s", [str(session["accountId"])])
     profile = cur.fetchone()
     result = cur.execute("SELECT * FROM Photo "
                          "INNER JOIN (SELECT * FROM Photo "
