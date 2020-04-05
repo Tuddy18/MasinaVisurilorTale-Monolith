@@ -1,6 +1,7 @@
 from flask_socketio import emit, send, join_room
-from run import socketio
 from flask import request, session
+
+from app import socketio
 
 profile_id_to_session = {}
 
