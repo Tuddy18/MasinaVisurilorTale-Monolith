@@ -16,11 +16,11 @@ def get_conversations():
     cur = mysql.connection.cursor()
     profile_id = session["accountId"]
     cur.execute(
-        "select * from profile where ProfileId in ("
-        "(select FirstProfileId from matchedcontact where SecondProfileId = {} and  "
+        "select * from Profile where ProfileId in ("
+        "(select FirstProfileId from MatchedContact where SecondProfileId = {} and  "
         "FirstProfileLike = 1 and SecondProfileLike = 1)"
         "union "
-        "(select SecondProfileId from matchedcontact where FirstProfileId = {} and "
+        "(select SecondProfileId from MatchedContact where FirstProfileId = {} and "
         "FirstProfileLike = 1 and SecondProfileLike = 1))".format(profile_id, profile_id))
     profiles = cur.fetchall()
 
@@ -48,14 +48,14 @@ def get_chat(second_person_id):
     if result > 0:
         second_profile_photo = cur.fetchone()["Url"]
 
-    result = cur.execute("select MatchedContactId from matchedcontact where "
+    result = cur.execute("select MatchedContactId from MatchedContact where "
         "((FirstProfileId ={} and SecondProfileId = {}) or "
         "(FirstProfileId ={} and SecondProfileId ={}))"
         .format(profile_id, second_person_id, second_person_id, profile_id))
     if result > 0:
         session["MatchedContactId"] = cur.fetchone()["MatchedContactId"]
 
-        cur.execute("select * from message where MatchedContactId = {} "
+        cur.execute("select * from Message where MatchedContactId = {} "
                     "order by MessageDateTime".format(session["MatchedContactId"]))
         messages = cur.fetchall()
 
@@ -71,7 +71,7 @@ def add_chat_message():
     profile_id = session["accountId"]
     cur = mysql.connection.cursor()
     cur.execute(
-        "insert into message(MatchedContactId, MessageDateTime, MessageText, MessageOwner) values ({},'{}','{}',{})".format(
+        "insert into Message(MatchedContactId, MessageDateTime, MessageText, MessageOwner) values ({},'{}','{}',{})".format(
             session['MatchedContactId'], datetime.datetime.now(), data['MessageText'], profile_id))
     mysql.connection.commit()
     notify_message_received(data["second_profile_id"])
