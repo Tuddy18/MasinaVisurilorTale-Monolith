@@ -16,10 +16,10 @@ def get_conversations():
     cur = mysql.connection.cursor()
     profile_id = session["accountId"]
     cur.execute(
-        "select * from Profile where ProfileId in ("
-        "(select FirstProfileId from MatchedContact where SecondProfileId = {} and  "
-        "FirstProfileLike = 1 and SecondProfileLike = 1)"
-        "union "
+        "select * from Profile where ProfileId in "
+        "((select FirstProfileId from MatchedContact where SecondProfileId = {} and  "
+        "FirstProfileLike = 1 and SecondProfileLike = 1) "
+        " union "
         "(select SecondProfileId from MatchedContact where FirstProfileId = {} and "
         "FirstProfileLike = 1 and SecondProfileLike = 1))".format(profile_id, profile_id))
     profiles = cur.fetchall()
