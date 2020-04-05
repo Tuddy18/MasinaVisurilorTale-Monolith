@@ -26,5 +26,8 @@
 }
 
 .sadness {
+position: absolute;
+z-index: -1;
+top: 20%;
   content:url("/static/nomorepeople.jpg");
 }
