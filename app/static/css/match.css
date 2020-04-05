@@ -14,6 +14,11 @@ div.first {
     align-items: center;
 }
 
+.match-image {
+  width: auto;
+  height: 100%;
+}
+
 .like{
   position: absolute;
   bottom: 0;
@@ -42,7 +47,6 @@ div.first {
 }
 
 .match-name {
-    #height: 5%;
     background: black;
     color: white;
     font-size: 30px;

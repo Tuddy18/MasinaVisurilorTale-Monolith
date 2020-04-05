@@ -21,13 +21,13 @@
                   {% for photo in recommendations %}
                   {% if recommendations.index(photo) == 0 %}
                   <div class="item active">
-                      <img src= "{{photo.Url}}" alt="photo" style="width:100%;">
+                      <img src= "{{photo.Url}}" alt="photo" class="match-image">
                       <div class="carousel-caption first">
                       </div>
                   </div>
                   {% else %}
                   <div class="item">
-                      <img src= "{{photo.Url}}" alt="photo" style="width:100%;">
+                      <img src= "{{photo.Url}}" alt="photo" class="match-image">
                       <div class="carousel-caption first">
                       </div>
                   </div>

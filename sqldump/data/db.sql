@@ -114,6 +114,14 @@ VALUES (1, 3, true, '2017:10:10');
 INSERT INTO MatchedContact(FirstProfileId, SecondProfileId, SecondProfileLike, MatchDateTime)
 VALUES (4, 1, true, '2017:11:11');
 
-insert into Message(MatchedContactId, MessageDateTime, MessageText, MessageOwner) value (1, '2018:10:10', 'ola', 1)
+insert into Message(MatchedContactId, MessageDateTime, MessageText, MessageOwner) value (1, '2018:10:10', 'ola', 1);
+
+INSERT INTO Photo(ProfileId, Url)
+VALUES (5, 'https://scontent.fclj2-1.fna.fbcdn.net/v/t1.0-9/p720x720/33513676_2012272232156426_7800492690730123264_o.jpg?_nc_cat=101&_nc_sid=85a577&_nc_ohc=xVKdrOGtaa4AX9qWypA&_nc_ht=scontent.fclj2-1.fna&_nc_tp=6&oh=ec9aa9b5423a182f52e81702aad6fec1&oe=5EAFC1F1'),
+(6, 'https://scontent.fclj2-1.fna.fbcdn.net/v/t1.0-9/p960x960/37671320_1341827289253065_1612336641383333888_o.jpg?_nc_cat=104&_nc_sid=85a577&_nc_ohc=-tUaKMlCWrIAX9TNOIL&_nc_ht=scontent.fclj2-1.fna&_nc_tp=6&oh=81ba33b05fc417857913c7a731fbd814&oe=5EAD9B3D'),
+(7, 'https://www.cowichanvalleycitizen.com/wp-content/uploads/2019/10/18804160_web1_praying-racoon-photo-winner-crop.jpg'),
+(7, 'https://www.nps.gov/guis/images/110617_Racoon_Odom_01.jpg'),
+(7, 'https://cdn.myalgoma.ca/wp-content/uploads/2019/09/racoon-1024x539.png'),
+(8, 'https://scontent.fclj2-1.fna.fbcdn.net/v/t1.0-9/22448357_1743402509011466_2330955659544705067_n.jpg?_nc_cat=101&_nc_sid=85a577&_nc_ohc=SqOWmpy4M3gAX9pF6ea&_nc_ht=scontent.fclj2-1.fna&oh=236855cb6d0ddd8575e9206b06a63f0a&oe=5EAE7A74');
 
 
