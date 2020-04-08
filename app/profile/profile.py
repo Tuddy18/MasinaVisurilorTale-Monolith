@@ -4,6 +4,10 @@ from app.config import mysql
 from flask import request, render_template, flash, redirect, url_for, session, jsonify
 from app.user.login import is_logged_in
 
+@app.route('/')
+@is_logged_in
+def index():
+        return redirect("/profile")
 
 @app.route('/profile')
 @is_logged_in

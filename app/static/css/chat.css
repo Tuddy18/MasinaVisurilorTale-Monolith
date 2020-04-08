@@ -22,6 +22,7 @@ body {
 
 .contact-avatar{
     display: inline-flex;
+    width: 100%;
 }
 .cropped-avatar{
   display: inline-block;
@@ -181,7 +182,6 @@ background-color: transparent;
 }
 
 .messages {
-    display: table-caption;
     height: 95%;
     width: 98%;
     overflow-y: auto;
