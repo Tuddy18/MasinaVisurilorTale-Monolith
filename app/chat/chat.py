@@ -68,7 +68,7 @@ def get_chat(second_person_id):
 @app.route("/message", methods=["POST"])
 def add_chat_message():
     data = request.form
-    profile_id = session["accountId"]
+    profile_id = session["ProfileId"]
     cur = mysql.connection.cursor()
     cur.execute(
         "insert into Message(MatchedContactId, MessageDateTime, MessageText, MessageOwner) values ({},'{}','{}',{})".format(

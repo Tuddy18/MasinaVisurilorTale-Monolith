@@ -5,4 +5,4 @@ app.secret_key='secret'
 
 if __name__ == '__main__':
     # app.run(host="0.0.0.0")
-    socketio.run(app)
+    socketio.run(app, host="0.0.0.0")

@@ -17,5 +17,6 @@ def handle_custom_event(json):
 
 
 def notify_message_received(second_profile_id):
-    socketio.emit("message_received", room=profile_id_to_session[str(second_profile_id)])
+    if str(second_profile_id) in profile_id_to_session.keys():
+        socketio.emit("message_received", room=profile_id_to_session[str(second_profile_id)])
 

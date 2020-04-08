@@ -39,19 +39,20 @@ function addChatMessage(message) {
 }
 
 function getMessageHtml(message) {
+    var date_time = new Date(message.MessageDateTime + "+03");
     const dark_format = ' <div class="container_chat darker_chat" style="width:auto">\n' +
         '        <div class="cropped-avatar cropped-avatar-right">\n' +
         '            <img src="' + message.photo_url + '" alt="Avatar" class="avatar-image">\n' +
         '       </div>' +
         '            <p>' + message.MessageText + '</p>\n' +
-        '            <span class="time-left_chat">11:01</span>\n' +
+        '            <span class="time-left_chat">'+ date_time.getHours() + ':' + date_time.getMinutes() + '</span>\n' +
         '        </div>';
     const white_format = ' <div class="container_chat" style="width:auto">\n' +
         '        <div class="cropped-avatar cropped-avatar-left">\n' +
         '            <img src="' + message.photo_url + '" alt="Avatar" class="avatar-image">\n' +
         '       </div>' +
         '            <p>' + message.MessageText + '</p>\n' +
-        '            <span class="time-left_chat">11:01</span>\n' +
+        '            <span class="time-left_chat">'+ date_time.getHours() + ':' + date_time.getMinutes() + '</span>\n' +
         '        </div>';
     if (message.MessageOwner === speaking_to) {
         return dark_format
